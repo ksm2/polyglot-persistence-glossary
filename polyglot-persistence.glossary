@@ -1,0 +1,42 @@
+title: Glossary of Automated Polyglot Persistence
+author: Konstantin Möllers
+---
+CAP Theorem: 
+	states that a database can either be => {Consistency}[consistent], highly available,
+	or partition-tolerant.
+
+CachePortal: 
+Caching: 
+Cassandra: #Database #WideColumnStore
+Cockroach DB: #Database #NewSQL
+Consistency: 
+Couch DB: #Database #NoSQL #DocumentStore
+Data Grid: 
+DB2: #Database #RDBMS
+Document Store: #NoSQL
+ElasticSearch: #Database #NoSQL #SearchEngine
+Expiration-Based Caching: 
+F1: #Database #RDBMS
+Geo-Replication: 
+Graph Store: #NoSQL
+Impedance Mismatch: 
+Invalidation-Based Caching: 
+Key-Value Store: #NoSQL
+Lambda Architecture: 
+Mongo DB: #Database #NoSQL #DocumentStore
+MySQL: #Database #RDBMS
+Neo4j: #Database #NoSQL #GraphStore
+NoXperanto: 
+Orient DB: #Database #NoSQL #GraphStore
+Polyglot Persistence: 
+PostgreSQL: #Database #RDBMS
+RDBMS: 
+Redis: #Database #NoSQL #KeyValueStore
+Riak: #Database #NoSQL #KeyValueStore
+Search Engine: #NoSQL
+Spanner: #Database #NewSQL
+TAO: 
+Tengu: 
+Triple Store: 
+Volt DB: #Database #NewSQL
+Wide-Column Store: #NoSQL
