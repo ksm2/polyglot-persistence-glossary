@@ -1,6 +1,10 @@
 title: Glossary
 author: Konstantin Möllers
 ---
+Δ-atomicity: #Consistency
+	is satisfied by an execution if any read returns either the latest preceding write
+	or the value of a write that returned at most Δ time units ago.
+
 Availability: #SLAs
 	means that every request receives a (non-error) response – without guarantee that
 	it contains the most recent write.
@@ -10,6 +14,9 @@ CAP theorem: #SLAs
 	properties: => Consistency, => Availability, or => {Partition tolerance}. The CAP
 	theorem has been found by Eric Brewer.
 
+Causal consistency: #Consistency
+	is satisfied if => PRAM and => {Writes follow reads} are guaranteed.
+
 Consistency: #SLAs
 	means that every read receives the most recent write or an error.
 
@@ -17,11 +24,34 @@ Impedance mismatch:
 	means the gap between the problem domain (e.g., how humans see the world) and the
 	solution domain (e.g., how computers understand the world).
 
+k-atomicity: #Consistency
+	is satisfied by an execution if any read returns one of the versions written by the
+	k-th preceding, completed writes that must have a global order that is consistent
+	with real-time order.
+
+(k,p)-atomicity: #Consistency
+	is satisfied by an execution if it satisfies => k-atomicity with a probability of
+	p.
+
+Linearizability: #Consistency
+	is given when => {Sequential consistency}, => {Δ-atomicity}, and => k-atomicity
+	holds.
+
+Monotonic reads: #Consistency
+	are guaranteed by a session if reads return versions in a monotonically increasing
+	order.
+
+Monotonic writes: #Consistency
+	are guaranteed by a session if the order of all writes from that session is maintained
+	for reads.
+
 Neo4j: #Database #NoSQL #GraphStore
 	is a => {Graph store}.
 
 NoXperanto: 
-	is a polyglot persistence system which
+	is a community-based => {Polyglot persistence} system which allows expert users to
+	establish links between polyglot systems. The links are stored within a => Neo4j
+	graph.
 
 Orient DB: #Database #NoSQL #GraphStore
 	is a => {Graph store}.
@@ -29,6 +59,10 @@ Orient DB: #Database #NoSQL #GraphStore
 Partition tolerance: #SLAs
 	is fulfilled when the system continues to operate despite an arbitrary number of
 	messages being dropped (or delayed) by the network between nodes.
+
+(Δ,p)-atomicity: #Consistency
+	is satisfied by an execution if it satisfies => {Δ-atomicity} with a probability
+	of p.
 
 Paxos: 
 	is a family of protocols for solving consensus in a network of unreliable processors.
@@ -39,7 +73,26 @@ Polyglot persistence:
 	data models. By doing so, one can on the one hand reduce the => {Impedance mismatch}
 	and on the other hand improve => {Performance}.
 
+PRAM: #Consistency
+	(pipelined random access memory consistency) is satisfied by a session if it guarantees
+	=> {Monotonic writes}, => {Monotonic reads}, and => {Read your writes} consistencies.
+
+Read your writes: #Consistency
+	consistency is satisfied if reads ret
+
+Sequential consistency: #Consistency
+	is satisfied by an execution if there is a global order of read and write operations
+	that is consistent with the local order in which they were submitted by each client.
+	<p/> Sequential consistent executions are also => Causal{ consistency}[ consistent].
+
+Tengu: 
+	is a => {Polyglot persistence} migration platform based on => Spark, => Neo4j, =>
+	Storm, and => Kafka to create a => {λ architecture} which migrates data between
+	heterogeneous database platforms.
+
 Arango DB: #Database #PolyglotDatabase #NoSQL #KeyValueStore #GraphStore #DocumentStore
+λ architecture: 
+Bigtable: #WideColumnStore #NoSQL
 CachePortal: 
 Caching: 
 Cassandra: #Database #WideColumnStore
@@ -55,9 +108,10 @@ Expiration-based caching:
 F1: #Database #RDBMS
 Geo-Replication: 
 Graph store: #NoSQL
+Hadoop: #BigData
 Invalidation-based caching: 
-Key-Value store: #NoSQL
-Lambda architecture: 
+Kafka: #BigData
+Key-value store: #NoSQL
 Latency: #SLAs
 Mongo DB: #Database #NoSQL #DocumentStore
 MySQL: #Database #RDBMS
@@ -69,9 +123,11 @@ Redis: #Database #NoSQL #KeyValueStore
 Riak: #Database #NoSQL #KeyValueStore
 Search Engine: #NoSQL
 Spanner: #Database #NewSQL
+Spark: #BigData
+Storm: #BigData
 TAO: 
-Tengu: 
 Throughput: #SLAs
 Triple Store: 
 Volt DB: #Database #NewSQL
 Wide-Column Store: #NoSQL
+Writes follow reads: #Consistency
