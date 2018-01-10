@@ -1,34 +1,68 @@
-title: Glossary of Automated Polyglot Persistence
+title: Glossary
 author: Konstantin Möllers
 ---
-CAP Theorem: 
-	states that a database can either be => {Consistency}[consistent], highly available,
-	or partition-tolerant.
+Availability: #SLAs
+	means that every request receives a (non-error) response – without guarantee that
+	it contains the most recent write.
 
+CAP theorem: #SLAs
+	states that a => {Distributed data store} can only fulfill two of the three following
+	properties: => Consistency, => Availability, or => {Partition tolerance}. The CAP
+	theorem has been found by Eric Brewer.
+
+Consistency: #SLAs
+	means that every read receives the most recent write or an error.
+
+Impedance mismatch: 
+	means the gap between the problem domain (e.g., how humans see the world) and the
+	solution domain (e.g., how computers understand the world).
+
+Neo4j: #Database #NoSQL #GraphStore
+	is a => {Graph store}.
+
+NoXperanto: 
+	is a polyglot persistence system which
+
+Orient DB: #Database #NoSQL #GraphStore
+	is a => {Graph store}.
+
+Partition tolerance: #SLAs
+	is fulfilled when the system continues to operate despite an arbitrary number of
+	messages being dropped (or delayed) by the network between nodes.
+
+Paxos: 
+	is a family of protocols for solving consensus in a network of unreliable processors.
+
+Polyglot persistence: 
+	is a term found by Leberknight 2008 and made popular by Fowler 2011. It describes
+	the fact that heterogeneous databases are used for tasks which require different
+	data models. By doing so, one can on the one hand reduce the => {Impedance mismatch}
+	and on the other hand improve => {Performance}.
+
+Arango DB: #Database #PolyglotDatabase #NoSQL #KeyValueStore #GraphStore #DocumentStore
 CachePortal: 
 Caching: 
 Cassandra: #Database #WideColumnStore
 Cockroach DB: #Database #NewSQL
-Consistency: 
 Couch DB: #Database #NoSQL #DocumentStore
 Data Grid: 
 DB2: #Database #RDBMS
+Distributed data store: 
 Document Store: #NoSQL
+Elasticity: #SLAs
 ElasticSearch: #Database #NoSQL #SearchEngine
-Expiration-Based Caching: 
+Expiration-based caching: 
 F1: #Database #RDBMS
 Geo-Replication: 
-Graph Store: #NoSQL
-Impedance Mismatch: 
-Invalidation-Based Caching: 
-Key-Value Store: #NoSQL
-Lambda Architecture: 
+Graph store: #NoSQL
+Invalidation-based caching: 
+Key-Value store: #NoSQL
+Lambda architecture: 
+Latency: #SLAs
 Mongo DB: #Database #NoSQL #DocumentStore
 MySQL: #Database #RDBMS
-Neo4j: #Database #NoSQL #GraphStore
-NoXperanto: 
-Orient DB: #Database #NoSQL #GraphStore
-Polyglot Persistence: 
+Orestes: #DBaaS
+Performance: #SLAs
 PostgreSQL: #Database #RDBMS
 RDBMS: 
 Redis: #Database #NoSQL #KeyValueStore
@@ -37,6 +71,7 @@ Search Engine: #NoSQL
 Spanner: #Database #NewSQL
 TAO: 
 Tengu: 
+Throughput: #SLAs
 Triple Store: 
 Volt DB: #Database #NewSQL
 Wide-Column Store: #NoSQL
